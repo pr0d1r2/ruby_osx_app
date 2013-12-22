@@ -18,6 +18,14 @@ class OsxApp
     validate!
   end
 
+  def version
+    `defaults read #{info_plist} CFBundleShortVersionString`.strip
+  end
+
+  def version_major
+    version.split('.').first
+  end
+
   private
 
   def validate!

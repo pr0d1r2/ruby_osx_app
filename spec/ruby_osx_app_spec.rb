@@ -11,6 +11,10 @@ describe OsxApp do
       its(:name) { should == 'Automator' }
 
       its(:path) { should == '/Applications/Automator.app' }
+
+      its(:version) { should == expected_automator_version }
+
+      its(:version_major) { should == expected_automator_version_major }
     end
 
     context 'with app suffix and app exist by default' do
@@ -19,6 +23,10 @@ describe OsxApp do
       its(:name) { should == 'Automator' }
 
       its(:path) { should == '/Applications/Automator.app' }
+
+      its(:version) { should == expected_automator_version }
+
+      its(:version_major) { should == expected_automator_version_major }
     end
 
     context 'and app does not exist' do
@@ -41,6 +49,10 @@ describe OsxApp do
       its(:name) { should == 'Automator' }
 
       its(:path) { should == '/Applications/Automator.app' }
+
+      its(:version) { should == expected_automator_version }
+
+      its(:version_major) { should == expected_automator_version_major }
     end
 
     context 'and app not exist' do
@@ -56,5 +68,15 @@ describe OsxApp do
 
       it { expect { subject }.to raise_error(OsxApp::Invalid) }
     end
+  end
+
+  def expected_automator_version
+    {
+      '10.8.5' => '2.3'
+    }[`sw_vers -productVersion`.strip]
+  end
+
+  def expected_automator_version_major
+    expected_automator_version.split('.').first
   end
 end
