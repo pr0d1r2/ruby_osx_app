@@ -15,4 +15,5 @@ end
 
 group :development, :test do
   gem 'rails_best_practices'
+  gem 'rubocop'
 end
