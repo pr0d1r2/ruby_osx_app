@@ -19,6 +19,7 @@ require 'osx_app'
 osx_app = OsxApp.new('/Applications/1Password.app')
 osx_app.version # => 4.0.3
 osx_app.version_major # => 4
+osx_app.minimum_osx # => '10.8.4'
 ```
 
 You can initialize simpler:

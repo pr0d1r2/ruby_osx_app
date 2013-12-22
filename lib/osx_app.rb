@@ -26,6 +26,10 @@ class OsxApp
     version.split('.').first
   end
 
+  def minimum_osx
+    `defaults read #{info_plist} LSMinimumSystemVersion`.strip
+  end
+
   private
 
   def validate!
