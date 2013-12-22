@@ -12,3 +12,7 @@ group :development do
   gem "jeweler", "~> 1.8.7"
   gem "simplecov", ">= 0"
 end
+
+group :development, :test do
+  gem 'rails_best_practices'
+end
