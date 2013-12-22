@@ -27,6 +27,12 @@ Or even more simpler:
 osx_app = OsxApp.new('1Password')
 ```
 
+You can also get info from custom path app:
+
+```ruby
+osx_app = OsxApp.new('/Volumes/ExternalDisk/Applications/1Password.app')
+```
+
 Contributing to ruby_osx_app
 ----------------------------
 
