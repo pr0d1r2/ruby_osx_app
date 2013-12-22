@@ -12,7 +12,7 @@ Into Gemfile put:
 gem 'ruby_osx_app'
 ```
 
-Get version from app:
+Get informations from app:
 
 ```ruby
 require 'osx_app'
