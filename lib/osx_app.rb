@@ -19,7 +19,7 @@ class OsxApp
   end
 
   def version
-    `defaults read #{info_plist} CFBundleShortVersionString`.strip
+    read_defaults('CFBundleShortVersionString')
   end
 
   def version_major
@@ -27,7 +27,7 @@ class OsxApp
   end
 
   def minimum_osx
-    `defaults read #{info_plist} LSMinimumSystemVersion`.strip
+    read_defaults('LSMinimumSystemVersion')
   end
 
   private
@@ -38,5 +38,9 @@ class OsxApp
 
   def info_plist
     "#{path}/Contents/Info.plist"
+  end
+
+  def read_defaults(string)
+    `defaults read #{info_plist} #{string}`.strip
   end
 end
