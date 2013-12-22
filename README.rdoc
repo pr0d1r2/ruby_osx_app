@@ -1,6 +1,18 @@
 = ruby_osx_app
 
-Description goes here.
+This gem operates on Mac OSX Applications to retrieve information from them.
+
+= Example usage
+
+osx_app = OsxApp.new('/Applications/1Password.app')
+
+osx_app.version # => 4.0.3
+
+osx_app.version_major # => 4.0.3
+
+osx_app = OsxApp.new('1Password.app')
+
+osx_app = OsxApp.new('1Password')
 
 == Contributing to ruby_osx_app
  
