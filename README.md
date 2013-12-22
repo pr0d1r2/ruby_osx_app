@@ -6,6 +6,12 @@ This gem operates on Mac OSX Applications to retrieve information from them.
 Example usage
 -------------
 
+Into Gemfile put:
+
+```ruby
+gem 'ruby_osx_app'
+```
+
 Get version from app:
 
 ```ruby
