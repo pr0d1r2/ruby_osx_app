@@ -4,6 +4,8 @@ This gem operates on Mac OSX Applications to retrieve information from them.
 
 = Example usage
 
+require 'osx_app'
+
 osx_app = OsxApp.new('/Applications/1Password.app')
 
 osx_app.version # => 4.0.3
