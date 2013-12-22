@@ -48,5 +48,13 @@ describe OsxApp do
 
       it { expect { subject }.to raise_error(OsxApp::CannotFind) }
     end
+
+    context 'and app does not contain Info.plist' do
+      let(:parameter) { "/tmp/Example#{Random.new_seed}.app" }
+      before { FileUtils.mkdir(parameter) }
+      after  { FileUtils.rm_rf(parameter) }
+
+      it { expect { subject }.to raise_error(OsxApp::Invalid) }
+    end
   end
 end
