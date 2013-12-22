@@ -19,7 +19,7 @@ class OsxApp
   end
 
   def version
-    read_defaults('CFBundleShortVersionString')
+    @version ||= read_defaults('CFBundleShortVersionString')
   end
 
   def version_major
@@ -27,7 +27,7 @@ class OsxApp
   end
 
   def minimum_osx
-    read_defaults('LSMinimumSystemVersion')
+    @minimum_osx ||= read_defaults('LSMinimumSystemVersion')
   end
 
   private
