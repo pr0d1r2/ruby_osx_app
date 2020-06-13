@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 
-describe 'rails_best_practices' do
-
+describe 'RuboCop' do
   it 'should conform' do
-    system('rubocop').should be_true
+    expect(system('rubocop')).to be true
   end
-
 end

@@ -1,36 +1,37 @@
+# frozen_string_literal: true
+
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe OsxApp do
-
+describe OsxApp do # rubocop:todo Metrics/BlockLength
   subject { OsxApp.new(parameter) }
 
   context 'when using name of app' do
     context 'and app exist by default' do
       let(:parameter) { 'Automator' }
 
-      its(:name) { should == 'Automator' }
+      its(:name) { should eq 'Automator' }
 
-      its(:path) { should == '/Applications/Automator.app' }
+      its(:path) { should eq '/Applications/Automator.app' }
 
-      its(:version) { should == expected_automator_version }
+      its(:version) { should eq expected_automator_version }
 
-      its(:version_major) { should == expected_automator_version_major }
+      its(:version_major) { should eq expected_automator_version_major }
 
-      its(:minimum_osx) { should == expected_automator_minimum_osx }
+      its(:minimum_osx) { should eq expected_automator_minimum_osx }
     end
 
     context 'with app suffix and app exist by default' do
       let(:parameter) { 'Automator.app' }
 
-      its(:name) { should == 'Automator' }
+      its(:name) { should eq 'Automator' }
 
-      its(:path) { should == '/Applications/Automator.app' }
+      its(:path) { should eq '/Applications/Automator.app' }
 
-      its(:version) { should == expected_automator_version }
+      its(:version) { should eq expected_automator_version }
 
-      its(:version_major) { should == expected_automator_version_major }
+      its(:version_major) { should eq expected_automator_version_major }
 
-      its(:minimum_osx) { should == expected_automator_minimum_osx }
+      its(:minimum_osx) { should eq expected_automator_minimum_osx }
     end
 
     context 'and app does not exist' do
@@ -50,15 +51,15 @@ describe OsxApp do
     context 'and app exist by default' do
       let(:parameter) { '/Applications/Automator.app' }
 
-      its(:name) { should == 'Automator' }
+      its(:name) { should eq 'Automator' }
 
-      its(:path) { should == '/Applications/Automator.app' }
+      its(:path) { should eq '/Applications/Automator.app' }
 
-      its(:version) { should == expected_automator_version }
+      its(:version) { should eq expected_automator_version }
 
-      its(:version_major) { should == expected_automator_version_major }
+      its(:version_major) { should eq expected_automator_version_major }
 
-      its(:minimum_osx) { should == expected_automator_minimum_osx }
+      its(:minimum_osx) { should eq expected_automator_minimum_osx }
     end
 
     context 'and app not exist' do
@@ -82,7 +83,8 @@ describe OsxApp do
 
   def expected_automator_version
     {
-      '10.8.5' => '2.3'
+      '10.8.5' => '2.3',
+      '10.13.6' => '2.8'
     }[osx_version]
   end
 
@@ -92,7 +94,8 @@ describe OsxApp do
 
   def expected_automator_minimum_osx
     {
-      '10.8.5' => '10.7'
+      '10.8.5' => '10.7',
+      '10.13.6' => '10.10'
     }[osx_version]
   end
 end

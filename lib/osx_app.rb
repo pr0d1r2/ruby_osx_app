@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # this class describes OSX Application
 class OsxApp
   class CannotFind < StandardError; end
@@ -13,7 +15,7 @@ class OsxApp
     else
       @name = name_or_path.gsub('.app', '')
       @path = "/Applications/#{@name}.app"
-      fail CannotFind, @path unless File.directory?(@path)
+      raise CannotFind, @path unless File.directory?(@path)
     end
     validate!
   end
@@ -33,7 +35,7 @@ class OsxApp
   private
 
   def validate!
-    fail Invalid, "No #{info_plist}" unless File.exist?(info_plist)
+    raise Invalid, "No #{info_plist}" unless File.exist?(info_plist)
   end
 
   def info_plist
